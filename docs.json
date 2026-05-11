@@ -57,6 +57,9 @@
       "href": "https://aniento.nadiasolutions.com"
     }
   },
+  "modeToggle": {
+    "default": "light"
+  },
   "footer": {
     "socials": {}
   }
