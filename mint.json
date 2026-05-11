@@ -1,0 +1,53 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "NADIA — Manual de uso",
+  "logo": {
+    "light": "/logo/nadia-light.svg",
+    "dark": "/logo/nadia-light.svg"
+  },
+  "favicon": "/logo/nadia-light.svg",
+  "colors": {
+    "primary": "#2563eb",
+    "light": "#3b82f6",
+    "dark": "#1d4ed8"
+  },
+  "topbarCtaButton": {
+    "name": "Abrir NADIA",
+    "url": "https://aniento.nadiasolutions.com"
+  },
+  "navigation": [
+    {
+      "group": "Introducción",
+      "pages": ["introduction"]
+    },
+    {
+      "group": "Primeros pasos",
+      "pages": [
+        "primeros-pasos/acceso",
+        "primeros-pasos/navegacion",
+        "primeros-pasos/roles"
+      ]
+    },
+    {
+      "group": "Módulos",
+      "pages": [
+        "modulos/panel-general",
+        "modulos/citas",
+        "modulos/pacientes",
+        "modulos/bonos",
+        "modulos/pools",
+        "modulos/actividades",
+        "modulos/historial",
+        "modulos/estadisticas",
+        "modulos/facturacion",
+        "modulos/empresas",
+        "modulos/profesionales",
+        "modulos/asistente-ia",
+        "modulos/whatsapp",
+        "modulos/ajustes",
+        "modulos/perfil"
+      ]
+    }
+  ],
+  "footerSocials": {}
+}

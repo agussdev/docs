@@ -1,0 +1,84 @@
+---
+title: Citas
+description: Calendario interactivo para gestionar las citas de la clínica
+---
+
+La sección de Citas es el corazón operativo de NADIA. Desde aquí gestionas toda la agenda de la clínica en un calendario visual multi-profesional.
+
+## Acceso
+
+Todos los usuarios.
+
+## El calendario
+
+El calendario muestra las citas organizadas en columnas por profesional y filas por hora. Puedes ver de 1 a 7 días a la vez.
+
+### Cambiar el rango de días
+En la barra superior, usa el selector desplegable (combobox) para elegir cuántos días quieres ver a la vez (de 1 a 7 días).
+
+### Navegar por fechas
+Usa las flechas `<` y `>` para avanzar o retroceder. El botón **"Hoy"** te lleva directamente al día actual.
+
+### Mini-calendario
+En el lateral izquierdo hay un pequeño calendario mensual. Los días con más citas aparecen con un color más intenso (heatmap). Haz clic en cualquier día para ir a esa fecha.
+
+### Filtrar por profesional
+En la barra superior verás los nombres de los profesionales como pastillas de color. Haz clic en uno o varios para filtrar el calendario. Haz clic en "Todos" para ver a todos.
+
+### Ajustar el rango horario
+Puedes limitar las horas visibles en el calendario usando los selectores de hora de inicio y fin en la barra superior.
+
+## Crear una cita
+
+Tienes dos formas de crear una nueva cita:
+
+**Opción A — Botón "Nueva cita":** Haz clic en el botón en la barra superior. Se abre un diálogo con el formulario completo.
+
+**Opción B — Clic en el calendario:** Haz clic en cualquier hueco libre del calendario. El formulario se abre con la hora, el profesional y la duración ya prerellenados.
+
+El diálogo de nueva cita tiene dos pestañas:
+
+### Pestaña "Consulta / Tratamiento"
+
+- **Paciente** (búsqueda por nombre) — con botón **"Añadir paciente"** para crear uno nuevo al vuelo
+- **Profesional** (obligatorio)
+- **Fecha y hora** (obligatorio)
+- **Duración** (combobox, por defecto 45 min)
+- **Sala** (obligatorio — se activa tras seleccionar profesional y hora)
+- **Primera visita** (checkbox)
+- **Tarifa** (opcional) — con acceso rápido a **"Crear nueva tarifa"**
+- **Tratamientos** (opcional) — selección múltiple de píldoras con los tratamientos configurados
+- **Tipo** (opcional) — texto libre
+- **Notas** (opcional)
+
+### Pestaña "Actividad Dirigida"
+
+- **Actividad** (búsqueda por nombre)
+- **Profesional** (obligatorio)
+- **Fecha y hora** (obligatorio)
+- **Duración** (combobox)
+- **Sala** (opcional)
+- **Crear sesiones recurrentes** (checkbox)
+
+## Detección de conflictos
+
+NADIA detecta automáticamente cuando hay dos citas del mismo profesional solapadas en el tiempo y muestra un aviso. Esto aplica tanto al crear una cita nueva como al moverla arrastrando.
+
+## Mover una cita
+
+Puedes arrastrar una cita a otro hueco del calendario para cambiar su hora o profesional.
+
+## Ver el detalle de una cita
+
+Haz clic en una cita del calendario para abrir su panel de detalle con toda la información. Desde ahí puedes:
+- **Editar** la cita
+- **Cambiar el estado** (completada, cancelada, no asistió)
+- **Eliminar** la cita
+
+## Visualizador de plano
+
+El botón **"Visualizador"** en la barra superior muestra el plano de la clínica con el estado de ocupación de cada sala en tiempo real.
+
+<Warning>
+Al eliminar una cita esta acción no se puede deshacer. Si una cita fue cancelada pero quieres conservar el registro, cambia su estado a "Cancelada" en lugar de eliminarla.
+</Warning>

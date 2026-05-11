@@ -1,0 +1,61 @@
+---
+title: Pacientes
+description: Directorio y gestión de todos los pacientes de la clínica
+---
+
+La sección de Pacientes es el directorio central de todas las personas registradas en el sistema.
+
+## Acceso
+
+Todos los usuarios.
+
+## Buscar un paciente
+
+Usa la barra de búsqueda para encontrar pacientes por **nombre**, **email**, **teléfono** o **notas**. La búsqueda se actualiza en tiempo real mientras escribes.
+
+## Ver la ficha de un paciente
+
+Haz clic en cualquier fila de la lista para abrir la ficha completa del paciente, donde verás sus datos personales, historial de citas, bonos activos y mucho más.
+
+## Crear un nuevo paciente
+
+Haz clic en el botón **"Nuevo paciente"**. Se abre una página de formulario en dos pasos:
+
+**Paso 1 — Datos personales:**
+- **Nombre** (obligatorio) y **Apellidos** (obligatorio)
+- **NIF / DNI**
+- **Fecha de nacimiento**
+- **Sexo**
+- **Importante** — campo para información destacada (alergias, avisos especiales)
+- **Observaciones** — notas generales sobre el paciente
+- Sub-pestañas de contacto:
+  - **Contacto:** Email, Teléfono, Dirección, Localidad, Código Postal, Provincia
+  - **Personal:** datos personales adicionales
+  - **Tutores:** datos de tutores legales (si aplica)
+
+**Paso 2 — Datos médicos:** cuestionario de anamnesis con las preguntas configuradas por el administrador.
+
+Puedes guardar el paciente con solo los datos personales y completar los datos médicos después.
+
+## Editar un paciente
+
+Desde la lista de pacientes, haz clic en el menú `···` de la fila y selecciona:
+- **Datos personales** para editar la información de contacto
+- **Datos médicos** para actualizar el cuestionario médico
+
+## Eliminar un paciente
+
+Desde el menú `···`, selecciona **"Eliminar"**. El paciente quedará marcado como inactivo pero sus datos se conservan en el sistema.
+
+<Warning>
+**Borrado RGPD (solo administradores)**
+
+La opción **"Eliminar RGPD"** es una acción irreversible que elimina permanentemente todos los datos del paciente del sistema, incluyendo:
+
+- Perfil completo y cuestionarios médicos
+- Historial de citas y episodios clínicos
+- Sesiones, notas y archivos adjuntos
+- Facturas, bonos, wallets y registros de pago
+
+Esta función cumple con el **Art. 17 del RGPD (Derecho de supresión)**. Solo debe ejecutarse si el paciente ha presentado una solicitud formal de borrado de sus datos.
+</Warning>
