@@ -3,40 +3,49 @@ title: Panel general
 description: Vista de resumen del día al entrar al sistema
 ---
 
-El Panel general es la primera pantalla que ves al acceder a NADIA. Muestra un resumen del estado actual de la clínica adaptado a tu nivel de acceso.
+El Panel general es la primera pantalla que ves al acceder a NADIA. Muestra un resumen del estado actual de la clínica en tiempo real.
 
 ## Acceso
 
 Todos los usuarios.
 
-## Qué ves según tu rol
+## Cabecera
 
-### Si eres usuario estándar
+Al entrar verás un saludo personalizado con la fecha actual, el número de citas del día y los profesionales activos en la clínica.
 
-- **3 KPIs de tu día**: total de citas hoy, programadas y completadas
-- **Gráfica de tu semana**: cuántas citas tienes cada día de la semana actual
-- **Ocupación de salas** en tiempo real
+## Insight del día
 
-### Si eres administrador
+En la parte superior hay un botón **Insight del día** que genera automáticamente un análisis del estado actual de la clínica usando el Asistente IA. Haz clic en él para expandirlo.
 
-- **4 KPIs** con comparativa respecto al período anterior:
-  - Pacientes activos en el sistema
-  - Citas esta semana (vs. semana anterior)
-  - Ingresos de hoy (vs. ayer)
-  - Facturas pendientes de cobro
-- **Gráfica de ingresos por hora** del día actual
-- **Gráfica de citas por día** de la semana actual
-- **Lista de citas de hoy**: las próximas 5 citas con paciente, profesional, hora y estado
-- **Ocupación de salas** en tiempo real (se actualiza automáticamente cada minuto)
+## Tu día
 
-## Tarjeta del Asistente IA
+Sección central que muestra la agenda del día en formato de **línea de tiempo por profesional**:
 
-En la parte superior del panel verás una tarjeta con un **insight generado automáticamente** por el Asistente IA sobre el estado actual de la clínica. Puedes hacer clic en ella para ir directamente al asistente.
+- Cada columna representa un profesional activo (p. ej. Marcos E., Marcos O., Agustin V.)
+- Las franjas horarias van de 09:00 a 19:00
+- Cada cita aparece en su hora correspondiente con el nombre del paciente
+- Debajo de la línea de tiempo se muestra cuántas citas están **completadas** y cuántas están **por venir**
+- El botón **Abrir calendario** lleva directamente a la vista de citas
+- Una tarjeta a la derecha indica la **cita en curso** (o "Sin cita en curso") y la **siguiente cita** con el tiempo restante y el botón **Ver ficha** para acceder al historial del paciente
 
-## Citas de hoy
+## KPIs (solo administradores)
 
-Haz clic en cualquier cita de la lista para ver su detalle completo. El botón "Ver todas" te lleva a la sección de Citas.
+Cuatro tarjetas con métricas clave y comparativa respecto al período anterior:
+
+| KPI | Comparativa |
+|-----|-------------|
+| **Ingresos hoy** | vs. ayer |
+| **Citas esta semana** | vs. semana anterior |
+| **Pacientes activos** | total en el sistema |
+| **Facturas pendientes** | importe sin cobrar |
 
 ## Salas en tiempo real
 
-El widget de salas muestra cuáles están ocupadas en este momento y cuáles están libres, junto con el nombre del paciente y hasta qué hora está ocupada cada sala.
+Widget que muestra el estado actual de cada sala (Nutrición, Sala 1–4):
+
+- **Libre** / **Ocupada** con el paciente y hora de fin
+- El indicador "sincronizado" confirma que los datos están actualizados al momento
+
+## Citas esta semana
+
+Gráfica de barras con el número de citas por día (lunes a domingo) de la semana actual, incluyendo el rango de fechas y el total semanal.

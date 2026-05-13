@@ -25,6 +25,41 @@ Escribe en la caja de texto en la parte inferior del chat y pulsa **Enter** o el
 ### Plantillas de WhatsApp
 Cuando la ventana de servicio está cerrada, el campo de texto aparece bloqueado y verás el botón **"Enviar plantilla"**. Las plantillas son mensajes predefinidos y aprobados por WhatsApp.
 
+## Plantillas disponibles
+
+NADIA tiene 11 plantillas activas organizadas en tres categorías. Algunas se envían automáticamente en respuesta a acciones del sistema; otras se disparan manualmente desde el selector de plantillas.
+
+### General
+
+| Plantilla | Variables | Disparador |
+|-----------|-----------|------------|
+| `notificacion_base` | `{{1}}` Mensaje | Manual desde ficha de paciente |
+
+### Citas
+
+| Plantilla | Variables | Disparador |
+|-----------|-----------|------------|
+| `respuesta_disponibilidad_cita` | `{{1}}` Nombre, `{{2}}` Fecha y hora | Manual (selector de plantillas) |
+| `respuesta_confirmacion_cita` | `{{1}}` Nombre, `{{2}}` Tratamientos, `{{3}}` Fecha y hora | Automático al crear cita |
+| `mensaje_cancelacion_cita` | `{{1}}` Nombre, `{{2}}` Tratamientos, `{{3}}` Fecha | Automático al cancelar cita |
+| `mensaje_recordatorio_cita` | `{{1}}` Nombre, `{{2}}` Hora, `{{3}}` Tratamientos | Cron job (24h antes de la cita) |
+| `mensaje_seguimiento_cita` | `{{1}}` Nombre | Cron job (15 días después de la sesión) |
+
+### Bonos
+
+| Plantilla | Variables | Disparador |
+|-----------|-----------|------------|
+| `mensaje_compra_bono` | `{{1}}` Nombre, `{{2}}` Nombre del bono, `{{3}}` Sesiones, `{{4}}` Fecha de caducidad | Automático al asociar paciente a bono |
+| `mensaje_uso_bono` | `{{1}}` Nombre, `{{2}}` Nombre del bono, `{{3}}` Sesiones restantes, `{{4}}` Fecha de caducidad | Automático al registrar pago/redención |
+| `recordatorio_caducidad_bono` | `{{1}}` Nombre, `{{2}}` Sesiones restantes, `{{3}}` Fecha de caducidad | Cron job (próxima caducidad) |
+
+### Facturación
+
+| Plantilla | Variables | Disparador |
+|-----------|-----------|------------|
+| `recordatorio_pago_factura` | `{{1}}` Nombre empresa, `{{2}}` Concepto, `{{3}}` Fecha de vencimiento | Automático al emitir factura a empresa |
+| `recordatorio_factura_vencida` | `{{1}}` Nombre empresa, `{{2}}` Concepto, `{{3}}` Fecha de vencimiento | Cron job (facturas vencidas) |
+
 ## La ventana de servicio de 24 horas
 
 <Warning>
