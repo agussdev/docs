@@ -1,0 +1,67 @@
+---
+title: Consentimiento digital
+description: Sistema de firma digital de consentimiento RGPD en tablet, con generación de PDF, gestión de dispositivos y seguimiento del estado de firma de cada paciente.
+---
+
+El módulo de Consentimiento permite recoger la firma digital del consentimiento de tratamiento de datos (RGPD) de los pacientes directamente desde una tablet o dispositivo móvil, sin necesidad de papel.
+
+## Acceso
+
+Todos los usuarios pueden enviar solicitudes de firma y ver el estado del consentimiento. La configuración de dispositivos y del texto legal es solo para administradores (ver [Ajustes](/modulos/ajustes)).
+
+## Cómo funciona
+
+El flujo completo de firma digital es el siguiente:
+
+1. El administrador registra una tablet como dispositivo en **Ajustes → Dispositivos** y abre la URL generada en el navegador de la tablet.
+2. Desde la ficha del paciente, cualquier profesional pulsa **Acciones → Enviar** y selecciona la tablet destino.
+3. La tablet muestra el nombre del paciente, el texto legal del consentimiento y un área de firma.
+4. El paciente lee el texto, marca la casilla de aceptación y firma con el dedo en la pantalla.
+5. Al enviar la firma, el sistema genera un PDF con el texto legal y la firma, lo almacena de forma segura y actualiza la ficha del paciente.
+
+## Estado del consentimiento en la ficha del paciente
+
+En la cabecera de la ficha de cada paciente aparece un indicador de estado:
+
+- **Consentimiento firmado** (verde): El paciente ya ha firmado. Muestra la fecha de firma.
+- **Menor — consentimiento tutor requerido** (naranja): El paciente es menor de 14 años y requiere firma de un tutor legal.
+- **Sin consentimiento** (rojo): El paciente aún no ha firmado el consentimiento.
+
+## Enviar solicitud de firma
+
+Desde la ficha del paciente, abre el menú **"Acciones"** en la cabecera. En la sección de consentimiento verás:
+
+- **Descargar PDF** si el paciente ya tiene consentimiento firmado.
+- **Enviar** o **Re-enviar** a cada tablet configurada. Selecciona el dispositivo destino y la solicitud aparecerá en la tablet.
+
+<Note>
+Si ya existe una solicitud pendiente en el mismo dispositivo, se cancela automáticamente y se reemplaza por la nueva.
+</Note>
+
+## Página de la tablet
+
+La tablet muestra una interfaz limpia y minimalista diseñada para que el paciente firme cómodamente:
+
+- **Nombre del paciente** en la parte superior.
+- **Texto legal del consentimiento** (personalizable desde Ajustes).
+- **Casilla de aceptación** que el paciente debe marcar antes de firmar.
+- **Área de firma** donde el paciente firma con el dedo.
+- Botones para **limpiar** la firma y para **enviar**.
+
+Tras firmar correctamente, la tablet muestra una confirmación y queda lista para la siguiente solicitud.
+
+## PDF generado
+
+El sistema genera automáticamente un PDF que incluye:
+
+- Datos de la clínica
+- Nombre del paciente
+- Texto legal del consentimiento
+- Imagen de la firma digital
+- Fecha y hora de la firma
+
+El PDF se almacena de forma segura y se puede descargar en cualquier momento desde la ficha del paciente.
+
+<Warning>
+El consentimiento firmado se vincula permanentemente al paciente. Si se realiza un borrado RGPD del paciente, el consentimiento y su PDF también se eliminan.
+</Warning>

@@ -1,16 +1,36 @@
 ---
 title: Agente IA
-description: Chat con IA conectado a los datos de la clínica para consultar KPIs, generar informes y visualizar gráficas con preguntas en lenguaje natural.
+description: Chat con IA conectado a los datos de la clínica para consultar KPIs, generar informes, visualizar gráficas y exportar documentos Excel/CSV con preguntas en lenguaje natural.
 ---
 
-El Agente IA es un chat inteligente conectado a los datos reales de la clínica. Puedes hacerle preguntas en lenguaje natural y te responderá con datos actualizados, tablas y gráficas.
+El Agente IA es un chat inteligente conectado a los datos reales de la clínica. Puedes hacerle preguntas en lenguaje natural y te responderá con datos actualizados, tablas, gráficas y documentos exportables.
 
 ## Acceso
 
-Todos los usuarios.
+Todos los usuarios con categorías de IA asignadas a su rol.
 
 <Note>
 El módulo se llama **"Agente IA"** en la cabecera de la página, aunque en el menú lateral aparece como "Asistente IA".
+</Note>
+
+## Control de acceso por rol
+
+El administrador puede configurar qué categorías de datos puede consultar cada rol clínico en el asistente. Las categorías disponibles son:
+
+| Categoría | Datos accesibles |
+|-----------|-----------------|
+| **Citas** | Agenda, huecos, estadísticas de citas |
+| **Pacientes** | Directorio, retención, pacientes inactivos |
+| **Facturación** | Ingresos, facturas pendientes, comparativas |
+| **Profesionales** | Carga de trabajo, ocupación, ranking |
+| **KPIs** | Indicadores generales de la clínica |
+| **Empresas** | Datos de empresas, pools, bonos empresariales |
+| **Otros** | Salas, actividades dirigidas, información general |
+
+Esta configuración se gestiona desde **Ajustes → Roles de profesionales**. Los administradores tienen acceso completo a todas las categorías.
+
+<Note>
+Si al entrar al asistente ves un mensaje indicando que no tienes acceso, es porque tu rol no tiene ninguna categoría de IA asignada. Contacta con el administrador.
 </Note>
 
 ## Acciones rápidas
@@ -34,11 +54,26 @@ También puedes escribir cualquier pregunta en la caja de texto. Algunos ejemplo
 - *"¿Cuál es el día de la semana con más citas?"*
 - *"Dame un resumen del mes de abril"*
 - *"Muéstrame los ingresos por profesional este mes"*
+- *"Expórtame la lista de pacientes inactivos a Excel"*
 
 ## Gráficas
 
-El asistente puede mostrar gráficas de **barras**, **líneas** y **sectores** directamente en la conversación. Verás el botón **"Descargar"** encima de cada gráfica para guardarla como imagen.
+El asistente puede mostrar gráficas de **barras**, **líneas** y **sectores** directamente en la conversación. Verás el botón **"Descargar"** encima de cada gráfica para guardarla como imagen PNG.
+
+## Tablas
+
+Cuando el asistente muestra datos en formato tabla, aparecen botones para exportar los datos como **CSV** o **Excel (XLSX)** directamente desde la tabla.
+
+## Generación de documentos
+
+Puedes pedirle al asistente que genere documentos exportables en formato **Excel** o **CSV**. Por ejemplo:
+
+- *"Genera un Excel con todas las citas del mes"*
+- *"Expórtame las facturas pendientes en CSV"*
+- *"Haz un listado de pacientes con su número de citas en Excel"*
+
+El documento se genera en la conversación con un botón de descarga. El límite es de 1.000 filas por documento.
 
 <Note>
-El asistente accede únicamente a los datos de tu clínica. El historial de la conversación se mantiene durante tu sesión activa; al cerrar sesión la conversación se reinicia.
+El asistente accede únicamente a los datos de tu clínica y solo a las categorías que tu rol tiene permitidas. El historial de la conversación se mantiene durante tu sesión activa; al cerrar sesión la conversación se reinicia.
 </Note>

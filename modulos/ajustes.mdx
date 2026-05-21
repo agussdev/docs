@@ -1,9 +1,9 @@
 ---
 title: Ajustes
-description: Configura los datos de la clínica, horarios de apertura, tarifas, tipos de tratamiento, salas y el cuestionario médico de los pacientes.
+description: Configura los datos de la clínica, horarios, tarifas, tratamientos, salas, métodos de pago, plantillas de bono, dispositivos de firma, roles con acceso IA y el cuestionario médico.
 ---
 
-Los Ajustes contienen toda la configuración del sistema: horarios, tarifas, salas, roles del equipo y el cuestionario médico de los pacientes.
+Los Ajustes contienen toda la configuración del sistema: horarios, tarifas, salas, métodos de pago, plantillas de bono, dispositivos de firma, roles del equipo y el cuestionario médico de los pacientes.
 
 Encontrarás esta sección en la **parte inferior del sidebar**, separada del resto de la navegación. Solo es accesible para administradores. La página se muestra con el título **"Configuración"** en el sistema.
 
@@ -19,6 +19,7 @@ Solo administradores.
 - **WhatsApp:** número de WhatsApp Business para el módulo de mensajería
 - **Email:** correo de contacto de la clínica
 - **Zona horaria:** importante que sea correcta para que las citas y los horarios se muestren en la hora local correcta
+- **Texto de consentimiento RGPD:** texto legal que se muestra al paciente en la tablet antes de firmar y se incluye en el PDF generado. Si se deja vacío se usa el texto por defecto.
 
 ## Horarios de apertura
 
@@ -50,9 +51,48 @@ Define las salas físicas de la clínica. Haz clic en **"Nueva sala"** para aña
 
 El botón **"Visualizador"** abre el visualizador interactivo del plano de la clínica.
 
+## Métodos de pago
+
+Define los métodos de pago disponibles en la clínica (por ejemplo: Efectivo, Tarjeta, Bizum, Transferencia). Haz clic en **"Añadir"** para crear un nuevo método.
+
+Los métodos que configures aquí aparecen en todos los formularios de cobro del sistema: al cobrar una cita, al crear un bono y en los pagos directos.
+
+<Warning>
+Si no hay ningún método de pago configurado, los formularios de cobro mostrarán un aviso indicando que es necesario configurar al menos uno desde Ajustes.
+</Warning>
+
+## Tipos de bono (plantillas)
+
+Define plantillas reutilizables para crear bonos más rápido. Cada plantilla incluye:
+- **Nombre** del tipo de bono
+- **Número de sesiones**
+- **Precio**
+- **Caducidad en meses** (opcional): al crear un bono con esta plantilla, la fecha de caducidad se calcula automáticamente
+
+Al crear un nuevo bono, puedes seleccionar una plantilla del desplegable y los campos se rellenan automáticamente.
+
+## Dispositivos
+
+Gestiona las tablets o dispositivos utilizados para la firma digital de consentimientos. Cada dispositivo tiene:
+- **Nombre** identificativo (por ejemplo: "Tablet recepción")
+- **Token** único generado automáticamente
+- **URL** completa para abrir en el navegador de la tablet
+
+Para añadir un nuevo dispositivo, haz clic en **"Añadir dispositivo"**, asigna un nombre y copia la URL generada en la tablet.
+
+<Note>
+Al eliminar un dispositivo se cancelan automáticamente todas las solicitudes de firma pendientes en ese dispositivo.
+</Note>
+
 ## Roles de profesionales
 
 Los roles clínicos que puede tener un profesional. Para cada rol puedes elegir si aparece en el calendario o solo de forma interna.
+
+### Categorías de IA por rol
+
+Para cada rol (excepto administrador) puedes definir qué **categorías de datos** puede consultar en el Agente IA. Las categorías disponibles son: Citas, Pacientes, Facturación, Profesionales, KPIs, Empresas y Otros.
+
+Si un rol no tiene ninguna categoría asignada, los profesionales con ese rol no podrán usar el Agente IA.
 
 ## Preguntas médicas
 
