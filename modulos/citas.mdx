@@ -11,7 +11,9 @@ Todos los usuarios.
 
 ## El calendario
 
-El calendario muestra las citas organizadas en columnas por profesional y filas por hora. Puedes ver de 1 a 7 días a la vez.
+El calendario muestra las citas organizadas en columnas por profesional y filas por hora. Puedes ver de 1 a 7 días a la vez. Si la clínica tiene muchos profesionales (20+), las columnas se ajustan con un ancho mínimo de 80px para mantener la legibilidad.
+
+Las franjas horarias en las que un profesional no está disponible (según su horario personalizado o vacaciones) aparecen visualmente bloqueadas en el calendario, para que sea fácil identificar los huecos libres.
 
 ### Cambiar el rango de días
 En la barra superior, usa el selector desplegable (combobox) para elegir cuántos días quieres ver a la vez (de 1 a 7 días).
@@ -42,7 +44,7 @@ El diálogo de nueva cita tiene dos pestañas:
 
 - **Paciente** (búsqueda por nombre) — con botón **"Añadir paciente"** para crear uno nuevo al vuelo
 - **Profesional** (obligatorio)
-- **Fecha y hora** (obligatorio)
+- **Fecha y hora** (obligatorio) — al crear una cita nueva, las fechas pasadas aparecen bloqueadas en el selector
 - **Duración** (combobox, por defecto 45 min)
 - **Sala** (obligatorio — se activa tras seleccionar profesional y hora)
 - **Primera visita** (checkbox)
@@ -58,11 +60,24 @@ El diálogo de nueva cita tiene dos pestañas:
 - **Fecha y hora** (obligatorio)
 - **Duración** (combobox)
 - **Sala** (opcional)
-- **Crear sesiones recurrentes** (checkbox)
+- **Crear sesiones recurrentes** (checkbox) — ver sección "Citas recurrentes" más abajo
+
+## Citas recurrentes
+
+Al activar **"Crear sesiones recurrentes"** en el formulario de cita, puedes programar múltiples sesiones de golpe:
+
+- **Días de la semana:** selecciona los días en los que se repetirá la cita
+- **Duración:** introduce el número de meses (de 1 a 24) durante los que se crearán sesiones
+
+Antes de crear las sesiones, NADIA comprueba automáticamente si alguna de ellas entra en conflicto con citas ya existentes del mismo profesional. Si se detectan conflictos:
+
+- Se muestra un diálogo con la **lista de fechas conflictivas** marcadas en rojo
+- El número de **sesiones que se saltarán** por conflicto
+- Puedes optar por **crear solo las sesiones sin conflicto** (omitiendo las problemáticas) o **cancelar** la operación
 
 ## Detección de conflictos
 
-NADIA detecta automáticamente cuando hay dos citas del mismo profesional solapadas en el tiempo y muestra un aviso. Esto aplica tanto al crear una cita nueva como al moverla arrastrando.
+NADIA detecta automáticamente cuando hay dos citas del mismo profesional solapadas en el tiempo y muestra un aviso. Esto aplica tanto al crear una cita nueva como al moverla arrastrando. También se valida que la cita esté dentro del horario disponible del profesional (teniendo en cuenta su horario personalizado, excepciones y vacaciones).
 
 ## Mover una cita
 
@@ -76,7 +91,7 @@ Combina los tres en un solo movimiento: puedes soltar la cita en el hueco de otr
 
 ## Ver el detalle de una cita
 
-Haz clic en una cita del calendario para abrir su panel de detalle. Muestra el nombre del paciente, la fecha y hora, el estado actual y los campos principales (profesional, sala, duración, tarifa y tratamientos).
+Haz clic en una cita del calendario para abrir su panel de detalle. Muestra el nombre del paciente, la fecha y hora, el estado actual y los campos principales (profesional, sala, duración, tarifa y tratamientos). Los administradores también ven quién creó la cita y cuándo.
 
 En la parte inferior del panel tienes cuatro acciones:
 
@@ -88,6 +103,16 @@ En la parte inferior del panel tienes cuatro acciones:
 ## Visualizador de plano
 
 El botón **"Visualizador"** en la barra superior muestra el plano de la clínica con el estado de ocupación de cada sala en tiempo real.
+
+## Notificaciones automáticas por WhatsApp
+
+NADIA envía mensajes de WhatsApp automáticos al paciente en los siguientes eventos (no aplica a citas de actividades dirigidas):
+
+- **Al crear una cita:** se envía una confirmación con el nombre del paciente, los tratamientos y la fecha/hora.
+- **Al cancelar una cita:** se envía un aviso de cancelación con los datos de la cita.
+- **Recordatorio 24h antes:** un cron diario a las 09:00 envía recordatorios a todos los pacientes con cita programada para el día siguiente.
+
+Las plantillas utilizadas son `respuesta_confirmacion_cita`, `mensaje_cancelacion_cita` y `mensaje_recordatorio_cita` respectivamente. Consulta la documentación de [WhatsApp](/modulos/whatsapp) para más detalles.
 
 <Warning>
 Al eliminar una cita esta acción no se puede deshacer. Si una cita fue cancelada pero quieres conservar el registro, cambia su estado a "Cancelada" en lugar de eliminarla.

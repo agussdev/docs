@@ -1,9 +1,9 @@
 ---
 title: Profesionales
-description: Administra las cuentas del equipo de la clínica con sus datos personales, rol clínico, nivel de acceso, color en el calendario y estado activo.
+description: Administra las cuentas del equipo, configura horarios personalizados por profesional, gestiona vacaciones y consulta estadísticas individuales de rendimiento.
 ---
 
-La sección de Profesionales te permite gestionar las cuentas de todos los miembros del equipo: sus datos, roles, nivel de acceso y cómo aparecen en el calendario.
+La sección de Profesionales te permite gestionar las cuentas de todos los miembros del equipo: sus datos, roles, nivel de acceso, horarios personalizados, vacaciones y estadísticas de rendimiento.
 
 ## Acceso
 
@@ -25,9 +25,72 @@ Haz clic en **"Nuevo profesional"**:
 - **Color en el calendario**
 - **Teléfono**, **especialidad** y **bio** (opcionales)
 
+## Ficha del profesional
+
+Haz clic en cualquier profesional de la lista para abrir su ficha individual. La ficha tiene varias secciones organizadas por pestañas:
+
+### Datos generales
+
+Información editable del profesional:
+
+- **Nombre**, **email**, **teléfono**, **bio** y **especialidad**
+- **Rol clínico** y **nivel de acceso**
+- **Color en el calendario**
+- **Estado** (activo/inactivo)
+- **Autónomo** (sí/no) — indica si el profesional trabaja como autónomo
+- **Tarifa por hora** — importe en euros/hora del profesional
+- **Días de vacaciones por año** — días de vacaciones asignados anualmente
+
+### Estadísticas
+
+Tarjetas de KPIs con el rendimiento del profesional filtrable por periodo (semana, mes o año):
+
+- **Citas totales** en el periodo
+- **Horas trabajadas** (basado en citas completadas)
+- **Ingresos generados** (basado en tarifas de citas completadas)
+- **Tasa de ocupación** (horas trabajadas vs horas planificadas)
+
+### Horario personalizado
+
+Cada profesional puede tener un horario propio, independiente del horario general de la clínica. Si no se configura un horario personalizado, el profesional sigue el horario de apertura de la clínica.
+
+#### Horario semanal
+
+Configura las franjas horarias disponibles para cada día de la semana. Cada día puede tener múltiples franjas (por ejemplo, 09:00–13:00 y 16:00–20:00). Activa o desactiva días individuales con el interruptor.
+
+#### Horario bisemanal (semana A / semana B)
+
+Para profesionales con horarios alternos cada dos semanas, activa el modo **bisemanal**. Configuras dos semanas distintas (semana A y semana B) y una **fecha de referencia** que indica cuándo empieza la rotación. NADIA alterna automáticamente entre ambas semanas.
+
+#### Excepciones de horario
+
+Las excepciones permiten modificar el horario del profesional en fechas concretas sin cambiar su horario habitual. Hay dos tipos:
+
+- **Excepción de día:** cambia las franjas horarias de una fecha concreta (por ejemplo, el profesional solo trabaja de 09:00 a 12:00 un día específico, o no trabaja ese día).
+- **Excepción de periodo:** aplica un horario semanal alternativo durante un rango de fechas (por ejemplo, horario de verano del 1 de julio al 31 de agosto).
+
+**Prioridad de resolución:** excepción de día > excepción de periodo > horario bisemanal > horario semanal > horario de la clínica.
+
+<Note>
+Al crear o editar una cita, NADIA valida automáticamente que la hora seleccionada esté dentro del horario disponible del profesional (teniendo en cuenta excepciones y vacaciones). Si el profesional no está disponible en esa franja, se muestra un aviso.
+</Note>
+
+### Vacaciones
+
+El gestor de vacaciones permite planificar y controlar los días libres de cada profesional.
+
+- **Calendario visual:** un calendario mensual donde los días de vacaciones del profesional aparecen marcados. Los días de vacaciones de otros profesionales del equipo también aparecen con su color, para ayudar a evitar solapamientos.
+- **Añadir vacaciones:** haz clic en **"Añadir vacaciones"** para registrar un día suelto o un rango de fechas, con notas opcionales.
+- **Contador de días:** muestra cuántos días de vacaciones se han usado en el año actual respecto a los días asignados (por ejemplo, "8 / 22 días usados").
+- **Eliminar vacaciones:** desde la lista de vacaciones registradas, usa el botón de eliminar para borrar un periodo.
+
+<Note>
+Los días de vacaciones se tienen en cuenta al crear citas: NADIA no permitirá programar una cita con un profesional que esté de vacaciones ese día.
+</Note>
+
 ## Editar un profesional
 
-Haz clic en el menú `···` del profesional y selecciona **"Editar"**. Desde el mismo menú también puedes seleccionar **"Cambiar contraseña"** para actualizar la contraseña del profesional.
+Desde la lista, haz clic en el menú `···` del profesional y selecciona **"Editar"**. Desde el mismo menú también puedes seleccionar **"Cambiar contraseña"** para actualizar la contraseña del profesional. Alternativamente, accede a la ficha del profesional para editar todos sus datos.
 
 ## Activar o desactivar un profesional
 
@@ -35,7 +98,7 @@ Un profesional inactivo no aparece en el calendario ni puede iniciar sesión. Us
 
 ## Subir foto de perfil
 
-Dentro del formulario de edición, puedes subir una foto de perfil.
+Dentro del formulario de edición o en la ficha del profesional, puedes subir una foto de perfil.
 
 <Note>
 El **nivel de acceso** (estándar o administrador) determina qué secciones puede ver el profesional en el dashboard. El **rol clínico** solo afecta a cómo aparece en el sistema y en el calendario, no a sus permisos.

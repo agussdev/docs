@@ -1,6 +1,6 @@
 ---
 title: Panel general
-description: Pantalla de inicio de NADIA con la agenda del día por profesional, KPIs de ingresos y citas, próxima cita en curso e insight generado por IA.
+description: Pantalla de inicio con timeline de citas del día, tarjeta de cita en curso y próxima, KPIs con sparklines, gráfico semanal y estado de salas en tiempo real.
 ---
 
 El Panel general es la primera pantalla que ves al acceder a NADIA. Muestra un resumen del estado actual de la clínica en tiempo real.
@@ -17,35 +17,45 @@ Al entrar verás un saludo personalizado con la fecha actual, el número de cita
 
 En la parte superior hay un botón **Insight del día** que genera automáticamente un análisis del estado actual de la clínica usando el Asistente IA. Haz clic en él para expandirlo.
 
-## Tu día
+## Timeline del día
 
-Sección central que muestra la agenda del día en formato de **línea de tiempo por profesional**:
+Sección central que muestra todas las citas de hoy en una **línea de tiempo horizontal** organizada por profesional:
 
-- Cada columna representa un profesional activo (p. ej. Marcos E., Marcos O., Agustín V.)
-- Las franjas horarias van de 09:00 a 19:00
-- Cada cita aparece en su hora correspondiente con el nombre del paciente
-- Debajo de la línea de tiempo se muestra cuántas citas están **completadas** y cuántas están **por venir**
+- Cada franja representa una cita, codificada con el **color del profesional** (o de la sala, según la configuración)
+- Los estados se distinguen visualmente:
+  - **Completada:** opacidad normal
+  - **En curso:** resaltada
+  - **Por venir:** ligeramente atenuada
+  - **Cancelada:** tachada o con opacidad reducida
+- Una **línea "Ahora"** marca la hora actual en la timeline
 - El botón **Abrir calendario** lleva directamente a la vista de citas
-- Una tarjeta a la derecha indica la **cita en curso** (o "Sin cita en curso") y la **siguiente cita** con el tiempo restante y el botón **Ver ficha** para acceder al historial del paciente
+
+## Cita en curso y próxima cita
+
+A la derecha de la timeline, una tarjeta muestra:
+
+- **Cita en curso:** el paciente, profesional y hora de la cita que se está realizando ahora (o "Sin cita en curso" si no hay ninguna)
+- **Próxima cita:** la siguiente cita programada con una cuenta atrás en minutos ("Próxima en X min")
+- Botón **Ver ficha** para acceder directamente al historial del paciente
 
 ## KPIs (solo administradores)
 
-Cuatro tarjetas con métricas clave y comparativa respecto al período anterior:
+Tarjetas de indicadores clave con **mini gráficos sparkline** y comparativa respecto al período anterior:
 
 | KPI | Comparativa |
 |-----|-------------|
-| **Ingresos hoy** | vs. ayer |
+| **Ingresos hoy** | vs. ayer (con % de cambio) |
 | **Citas esta semana** | vs. semana anterior |
 | **Pacientes activos** | total en el sistema |
 | **Facturas pendientes** | importe sin cobrar |
 
+## Gráfico semanal
+
+Gráfica de área con los datos de la semana actual, mostrando el rango de fechas y las tendencias de actividad.
+
 ## Salas en tiempo real
 
-Widget que muestra el estado actual de cada sala (Nutrición, Sala 1–4):
+Widget que muestra el estado actual de cada sala:
 
 - **Libre** / **Ocupada** con el paciente y hora de fin
 - El indicador "sincronizado" confirma que los datos están actualizados al momento
-
-## Citas esta semana
-
-Gráfica de barras con el número de citas por día (lunes a domingo) de la semana actual, incluyendo el rango de fechas y el total semanal.

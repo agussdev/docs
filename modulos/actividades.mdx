@@ -1,9 +1,9 @@
 ---
 title: Actividades dirigidas
-description: Crea y gestiona las clases grupales de la clínica (pilates, yoga, HIIT) y administra las suscripciones mensuales de los pacientes inscritos.
+description: Crea y gestiona clases grupales con inscripciones permanentes, facturación mensual automática, pago manual o domiciliación bancaria y justificantes de recibo.
 ---
 
-Las actividades dirigidas son las clases grupales de la clínica: pilates terapéutico, yoga, HIIT, grupos de running, etc. Los pacientes se suscriben mensualmente a las actividades que les interesan.
+Las actividades dirigidas son las clases grupales de la clínica: pilates terapéutico, yoga, HIIT, grupos de running, etc. Los pacientes se inscriben en las actividades y NADIA genera automáticamente las suscripciones y facturas mensuales.
 
 ## Acceso
 
@@ -24,22 +24,52 @@ Haz clic en **"Nueva actividad"**:
 
 ## Gestionar inscritos
 
-Haz clic en una actividad para ver la lista de pacientes suscritos en el mes actual.
+Haz clic en una actividad para ver la lista de pacientes inscritos. Cada inscripción muestra el nombre del paciente, la forma de pago y el estado de la suscripción del mes actual.
 
 ### Inscribir a un paciente
 
 Haz clic en **"Nueva suscripción"** dentro de la actividad:
-- Busca el paciente por nombre
-- Selecciona el mes de inicio
 
-### Cancelar una suscripción
+1. **Busca el paciente** por nombre
+2. **Selecciona el mes de inicio** de la suscripción
+3. **Elige la forma de pago:**
 
-Desde la lista de inscritos, usa el menú `···` del paciente y selecciona "Cancelar suscripción".
+#### Pago manual
+
+El paciente paga cada mes de forma presencial (efectivo, tarjeta, etc.). Las suscripciones mensuales se generan automáticamente pero el cobro se registra manualmente.
+
+#### Domiciliación bancaria
+
+El pago se domicilia en la cuenta bancaria del paciente. Al seleccionar esta opción aparecen dos campos adicionales:
+
+- **IBAN** — número de cuenta en formato español (ES seguido de 22 dígitos). Se valida automáticamente.
+- **Titular de la cuenta** — nombre del titular de la cuenta bancaria (obligatorio).
+
+Las suscripciones con domiciliación aparecen con una etiqueta **"Dom."** en la lista de inscritos.
+
+### Facturación mensual automática
+
+NADIA genera automáticamente las suscripciones y facturas de todas las inscripciones activas el **día 1 de cada mes**. El proceso:
+
+1. Recorre todas las inscripciones activas
+2. Crea la suscripción del mes si no existe ya (idempotente)
+3. Genera la factura correspondiente
+4. Omite las actividades archivadas
+
+No es necesario intervenir manualmente: las facturas aparecen automáticamente en la sección de Facturación.
+
+### Justificantes de pago (domiciliación)
+
+Para las suscripciones con domiciliación bancaria, puedes subir un **justificante de pago** (recibo bancario) desde el menú de acciones de la suscripción. El justificante queda vinculado a la factura y puede consultarse desde la sección de Facturación con el botón **"Ver justificante"**.
+
+### Cancelar una inscripción
+
+Desde la lista de inscritos, usa el menú `···` del paciente y selecciona "Cancelar inscripción". La inscripción se desactiva y no se generarán más suscripciones mensuales.
 
 ## Editar o eliminar una actividad
 
 Usa el menú `···` de cada actividad para editarla o eliminarla.
 
 <Warning>
-Eliminar una actividad eliminará también el historial de suscripciones asociado. Si quieres mantener el registro, no elimines la actividad aunque no esté activa.
+Eliminar una actividad eliminará también el historial de inscripciones y suscripciones asociado. Si quieres mantener el registro, archiva la actividad en lugar de eliminarla.
 </Warning>

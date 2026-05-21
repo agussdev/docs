@@ -2,6 +2,112 @@
 
 Todos los cambios relevantes en la documentación de NADIA se registran en este archivo.
 
+## [2026-05-21] — Actualización de documentación
+
+### Módulos actualizados
+
+#### Profesionales (`modulos/profesionales.mdx`)
+- Documentada la nueva **ficha individual del profesional** (`/professionals/[id]`): datos editables, campos nuevos (autónomo, tarifa/hora, días de vacaciones/año) y estadísticas por periodo (citas, horas, ingresos, ocupación).
+- Documentado el **editor de horario personalizado**: horario semanal independiente del horario de clínica, con soporte para múltiples franjas por día.
+- Documentado el **horario bisemanal** (semana A/B): rotación automática con fecha de referencia.
+- Documentadas las **excepciones de horario**: excepciones por día exacto y por periodo con horario semanal alternativo, con prioridad de resolución documentada.
+- Documentada la **gestión de vacaciones**: calendario visual, días sueltos o rangos con notas, contador de días usados vs asignados, vista de vacaciones de otros profesionales.
+- Documentada la **validación de horario en citas**: NADIA valida automáticamente que la cita esté dentro del horario disponible del profesional.
+
+#### Actividades dirigidas (`modulos/actividades.mdx`)
+- Documentada la **domiciliación bancaria** como forma de pago al inscribir paciente: campos IBAN (formato ES + 22 dígitos) y titular de cuenta con validación.
+- Documentado el **modelo de inscripción separado**: inscripción permanente vs suscripciones mensuales generadas automáticamente.
+- Documentada la **facturación mensual automática**: cron del día 1 que genera suscripciones y facturas para todas las inscripciones activas.
+- Documentados los **justificantes de pago**: subida y visualización de recibos bancarios para suscripciones con domiciliación.
+
+#### Citas (`modulos/citas.mdx`)
+- Documentada la **detección de conflictos en citas recurrentes**: pre-check contra citas existentes del profesional, diálogo con fechas conflictivas, opción de crear solo las sesiones sin conflicto.
+- Documentado el **input libre de meses para recurrentes**: de 1 a 24 meses (antes era un desplegable fijo).
+- Documentado el **bloqueo de fechas pasadas** en el selector de fecha al crear citas nuevas.
+- Documentada la **info del creador de la cita** visible solo para administradores.
+- Documentado el **ancho mínimo de columna** (80px) para clínicas con 20+ profesionales.
+- Documentado el **bloqueo visual de franjas** en el calendario según horario del profesional y vacaciones.
+- Documentadas las **notificaciones automáticas de WhatsApp**: confirmación al crear, aviso al cancelar y recordatorio 24h antes.
+
+#### WhatsApp (`modulos/whatsapp.mdx`)
+- Documentada la **prioridad de nombre en conversaciones**: se muestra el nombre del paciente vinculado en lugar del nombre de WhatsApp.
+- Documentada la opción de **vincular conversación a empresa** (además de paciente), con exclusión mutua.
+
+#### Pacientes (`modulos/pacientes.mdx`)
+- Documentada la sección **Actividades dirigidas** en la ficha del paciente: listado de actividades en las que está inscrito.
+- Documentado el checkbox **"Ha dejado reseña"** para seguimiento de reseñas de pacientes.
+
+#### Panel general (`modulos/panel-general.mdx`)
+- Documentado el **rediseño completo del panel**: nueva timeline horizontal del día por profesional con estados visuales y línea "Ahora".
+- Documentada la **tarjeta de cita en curso y próxima cita** con cuenta atrás en minutos.
+- Documentados los **KPIs con sparklines** y comparativa porcentual.
+- Documentado el **gráfico semanal** de área con tendencias de actividad.
+
+#### Facturación (`modulos/facturacion.mdx`)
+- Documentado el botón **"Ver justificante"** para facturas con recibo de domiciliación adjunto.
+- Documentado el **nuevo diseño premium de facturas PDF**.
+- Actualizada la nota de generación automática para incluir las facturas mensuales de actividades dirigidas.
+
+---
+
+### Resumen de cambios en el producto (nadia-api + nadia-dashboard)
+
+Estos son los cambios implementados en el producto que motivaron esta actualización de la documentación:
+
+#### Profesionales — ficha individual, horarios y vacaciones (nuevo)
+- Nueva página de detalle del profesional con datos editables, estadísticas y KPIs por periodo.
+- Campos nuevos: autónomo (sí/no), tarifa por hora, días de vacaciones anuales.
+- Editor de horario semanal personalizado por profesional (independiente del horario de clínica).
+- Soporte bisemanal (semana A/B) con fecha de referencia para rotación automática.
+- Excepciones de horario: por día exacto y por periodo con horario semanal alternativo.
+- Gestor de vacaciones con calendario visual, días sueltos/rangos, notas y contador anual.
+- Vista de vacaciones de otros profesionales para evitar solapamientos.
+- Validación automática de horario del profesional al crear/editar citas.
+- Bloqueo visual de franjas no disponibles en el calendario.
+- Endpoint de disponibilidad bulk para múltiples profesionales.
+
+#### Actividades dirigidas — domiciliación y facturación automática
+- Modelo de inscripción separado de suscripciones mensuales.
+- Domiciliación bancaria: tipo de pago con IBAN y titular al inscribir paciente.
+- Cron mensual de facturación automática (día 1, 02:00): genera suscripciones y facturas.
+- Subida y visualización de justificantes de pago (recibos bancarios) almacenados en R2.
+- Scripts de migración de inscripciones y backfill de receipt URLs.
+
+#### Citas — conflictos, recurrentes y notificaciones
+- Detección de conflictos en citas recurrentes: pre-check contra citas existentes, diálogo de resolución.
+- Input libre de meses para citas recurrentes (1–24, antes desplegable fijo).
+- Bloqueo de fechas pasadas en selector de fecha al crear citas.
+- Info del creador de la cita visible solo para admins en preview y detalle.
+- Columna mínima de 80px en calendario para 20+ profesionales.
+- WhatsApp: confirmación automática al crear cita, aviso al cancelar, recordatorio diario 24h antes.
+
+#### WhatsApp — mejoras en conversaciones
+- Nombre del paciente vinculado como nombre principal en conversaciones (antes: nombre de WhatsApp).
+- Resolución de nombres de paciente y empresa vía aggregation en lista y detalle.
+- Vinculación de empresa a conversación (antes solo paciente), con exclusión mutua.
+- Cabeceras CORS en endpoint SSE para soporte cross-origin.
+
+#### Panel general — rediseño completo
+- Timeline horizontal del día con citas por profesional, colores, estados y línea "Ahora".
+- Tarjeta de cita en curso + próxima cita con cuenta atrás.
+- KPIs con mini sparklines y comparativa porcentual.
+- Gráfico semanal de área con recharts.
+- Widget de salas actualizado.
+
+#### Ficha de paciente — ampliaciones
+- Listado de actividades dirigidas en las que el paciente está inscrito.
+- Checkbox "Ha dejado reseña" (campo hasLeftReview).
+
+#### Facturación — mejoras
+- Nuevo diseño premium de facturas PDF (estilo "Headline Block", paleta teal).
+- Campo receiptUrl en facturas y botón "Ver justificante" para recibos de domiciliación.
+- Generación automática de facturas mensuales para actividades dirigidas.
+
+#### Panel general (admin) — fix de permisos
+- Admins sin campo permissionLevel explícito ahora ven correctamente los datos completos del dashboard.
+
+---
+
 ## [2025-05-21] — Actualización de documentación
 
 ### Nuevas páginas
